@@ -10,7 +10,7 @@
     <modelVersion>4.0.0</modelVersion>
     <packaging>jar</packaging>
 
-    <artifactId>customer</artifactId>
+    <artifactId>notification</artifactId>
 
     <build>
         <plugins>
@@ -63,5 +63,4 @@
             <scope>compile</scope>
         </dependency>
     </dependencies>
-
 </project>
