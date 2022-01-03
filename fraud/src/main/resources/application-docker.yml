@@ -16,9 +16,11 @@ spring:
       #ddl-auto: update
       ddl-auto: create-drop
     show-sql: 'true'
-
   zipkin:
     base-url: http://zipkin:9411
+  cloud:
+    kubernetes:
+      enabled: false
 
 eureka:
   client:
@@ -26,4 +28,4 @@ eureka:
       defaultZone: http://eureka-server:8761/eureka
     fetch-registry: true
     register-with-eureka: true
-    enabled: false
+    enabled: true

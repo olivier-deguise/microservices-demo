@@ -12,6 +12,7 @@ spec:
       labels:
         app: fraud
     spec:
+      serviceAccountName: gateway
       containers:
         - name: fraud
           image: odg18/fraud:latest
@@ -20,7 +21,7 @@ spec:
             - containerPort: 8081
           env:
             - name: SPRING_PROFILES_ACTIVE
-              value: kube
+              value: kubernetes
       restartPolicy: Always
   selector:
     matchLabels:

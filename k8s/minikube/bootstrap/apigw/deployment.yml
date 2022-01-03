@@ -1,28 +1,28 @@
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  name: notification
+  name: api-gateway
   labels:
-    app: notification
+    app: api-gateway
 spec:
   replicas: 1
   template:
     metadata:
-      name: notification
+      name: api-gateway
       labels:
-        app: notification
+        app: api-gateway
     spec:
       serviceAccountName: gateway
       containers:
-        - name: notification
-          image: odg18/notification:latest
+        - name: api-gateway
+          image: odg18/apigw:latest
           imagePullPolicy: Always
           ports:
-            - containerPort: 8082
+            - containerPort: 8083
           env:
             - name: SPRING_PROFILES_ACTIVE
               value: kubernetes
       restartPolicy: Always
   selector:
     matchLabels:
-      app: notification
+      app: api-gateway

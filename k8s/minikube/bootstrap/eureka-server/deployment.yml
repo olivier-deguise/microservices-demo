@@ -1,28 +1,27 @@
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  name: notification
+  name: eureka-server
   labels:
-    app: notification
+    app: eureka-server
 spec:
   replicas: 1
   template:
     metadata:
-      name: notification
+      name: eureka-server
       labels:
-        app: notification
+        app: eureka-server
     spec:
-      serviceAccountName: gateway
       containers:
-        - name: notification
-          image: odg18/notification:latest
+        - name: eureka-server
+          image: odg18/eureka-server:latest
           imagePullPolicy: Always
           ports:
-            - containerPort: 8082
+            - containerPort: 8761
           env:
             - name: SPRING_PROFILES_ACTIVE
-              value: kubernetes
+              value: kube
       restartPolicy: Always
   selector:
     matchLabels:
-      app: notification
+      app: eureka-server
