@@ -1,11 +1,9 @@
 server:
-  port: 8081
+  port: 8082
 spring:
-  application:
-    name: fraud
   datasource:
     username: 'amigoscode'
-    url: jdbc:postgresql://postgres:5432/fraud
+    url: jdbc:postgresql://postgres:5432/notification
     password: 'password'
   jpa:
     properties:
@@ -26,7 +24,17 @@ spring:
       enabled: true
   zipkin:
     base-url: http://zipkin:9411
+  rabbitmq:
+    addresses: rabbitmq:5672
 
 eureka:
   client:
     enabled: false
+
+rabbitmq:
+  exchanges:
+    internal: internal.exchange
+  queues:
+    notification: notification.queue
+  routing-keys:
+    internal-notification: internal.notification.routing-key
