@@ -47,6 +47,16 @@ services:
     networks:
       - spring
 
+  config-server:
+    image: odg18/config-server:latest
+    container_name: config_server
+    ports:
+      - "9101:9101"
+    environment:
+      - SPRING_PROFILES_ACTIVE=docker
+    networks:
+      - spring
+
   eureka-server:
     image: odg18/eureka-server:latest
     container_name: eureka_server
