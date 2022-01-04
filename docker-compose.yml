@@ -56,6 +56,8 @@ services:
       - SPRING_PROFILES_ACTIVE=docker
     networks:
       - spring
+    depends_on:
+      - eureka-server
 
   eureka-server:
     image: odg18/eureka-server:latest
@@ -81,6 +83,7 @@ services:
     depends_on:
       - zipkin
       - eureka-server
+      - config-server
 
   customer:
     image: odg18/customer:latest
@@ -97,6 +100,8 @@ services:
       - eureka-server
       - postgres
       - rabbitmq
+      - config-server
+
 
   fraud:
     image: odg18/fraud:latest
@@ -113,6 +118,8 @@ services:
       - eureka-server
       - postgres
       - rabbitmq
+      - config-server
+
 
   notification:
     image: odg18/notification:latest
@@ -129,6 +136,8 @@ services:
       - eureka-server
       - postgres
       - rabbitmq
+      - config-server
+
 
 networks:
   postgres:
