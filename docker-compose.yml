@@ -58,6 +58,7 @@ services:
       - spring
     depends_on:
       - eureka-server
+      - zipkin
 
   eureka-server:
     image: odg18/eureka-server:latest
