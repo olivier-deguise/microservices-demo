@@ -16,7 +16,8 @@
 		<module>notification</module>
         <module>apigw</module>
         <module>amqp</module>
-    </modules>
+		<module>config-server</module>
+	</modules>
 
 	<name>demo</name>
 	<url>https://my-demo.com</url>
