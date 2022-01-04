@@ -1,0 +1,19 @@
+server:
+  port: 9101
+
+spring:
+  application:
+    name: config-server
+  cloud:
+    config:
+      server:
+        git:
+          uri: https://github.com/olivier-deguise/microservices-demo
+          searchPaths: config-server-repo/**
+          default-label: master
+  zipkin:
+    base-url: http://zipkin:9411
+
+eureka:
+  client:
+    enabled: false
