@@ -102,7 +102,6 @@ services:
       - rabbitmq
       - config-server
 
-
   fraud:
     image: odg18/fraud:latest
     container_name: fraud
@@ -120,7 +119,6 @@ services:
       - rabbitmq
       - config-server
 
-
   notification:
     image: odg18/notification:latest
     container_name: notification
@@ -137,7 +135,6 @@ services:
       - postgres
       - rabbitmq
       - config-server
-
 
 networks:
   postgres:
