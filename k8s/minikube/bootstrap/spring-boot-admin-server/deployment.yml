@@ -1,0 +1,44 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: spring-boot-admin-server
+  labels:
+    app: spring-boot-admin-server
+spec:
+  replicas: 1
+  template:
+    metadata:
+      name: spring-boot-admin-server
+      labels:
+        app: spring-boot-admin-server
+    spec:
+      serviceAccountName: demo-role
+      containers:
+        - name: spring-boot-admin-server
+          image: odg18/spring-boot-admin-server:latest
+          imagePullPolicy: Always
+          ports:
+            - containerPort: 9102
+          env:
+            - name: SPRING_PROFILES_ACTIVE
+              value: kubernetes
+          readinessProbe:
+            httpGet:
+              path: /actuator/health
+              port: 9102
+            initialDelaySeconds: 120
+            timeoutSeconds: 30
+            periodSeconds: 30
+            failureThreshold: 10
+          livenessProbe:
+            httpGet:
+              path: /actuator/health
+              port: 9102
+            initialDelaySeconds: 120
+            timeoutSeconds: 30
+            periodSeconds: 30
+            failureThreshold: 10
+      restartPolicy: Always
+  selector:
+    matchLabels:
+      app: spring-boot-admin-server

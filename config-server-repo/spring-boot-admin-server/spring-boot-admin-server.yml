@@ -1,0 +1,41 @@
+server:
+  port: 9102
+
+spring:
+  security:
+    user:
+      name: admin
+      password: admin
+
+#configs to connect to self register the admin server as a client
+  boot:
+    admin:
+      client:
+        url: http://localhost:9102
+        username: ${spring.security.user.name}
+        password: ${spring.security.user.password}
+        #configs to give secured server info
+      instance:
+        metadata:
+          user:
+            name: ${spring.security.user.name}
+            password: ${spring.security.user.password}
+
+management:
+  endpoint:
+    health:
+      show-details: always
+    gateway:
+      enabled: true
+
+  endpoints:
+    web:
+      exposure:
+        include: "*"
+
+eureka:
+  client:
+    service-url:
+      defaultZone: http://eureka-server:8761/eureka
+    fetch-registry: true
+    register-with-eureka: true

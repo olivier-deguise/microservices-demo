@@ -17,6 +17,7 @@
         <module>apigw</module>
         <module>amqp</module>
 		<module>config-server</module>
+		<module>spring-boot-admin-server</module>
 	</modules>
 
 	<name>demo</name>
@@ -33,6 +34,7 @@
 		<spring.boot.dependencies.version>2.6.2</spring.boot.dependencies.version>
 		<!-- <spring.cloud-version>2020.0.3</spring.cloud-version> -->
 		<spring.cloud-version>2021.0.0</spring.cloud-version>
+		<spring.boot.admin-version>2.5.5</spring.boot.admin-version>
 		<image>odg18/${project.artifactId}:${project.version}</image>
 	</properties>
 
@@ -50,6 +52,14 @@
 				<groupId>org.springframework.cloud</groupId>
 				<artifactId>spring-cloud-dependencies</artifactId>
 				<version>${spring.cloud-version}</version>
+				<type>pom</type>
+				<scope>import</scope>
+			</dependency>
+
+			<dependency>
+				<groupId>de.codecentric</groupId>
+				<artifactId>spring-boot-admin-dependencies</artifactId>
+				<version>${spring.boot.admin-version}</version>
 				<type>pom</type>
 				<scope>import</scope>
 			</dependency>
@@ -73,7 +83,6 @@
 			<groupId>org.springframework.cloud</groupId>
 			<artifactId>spring-cloud-starter-openfeign</artifactId>
 		</dependency>
-		<!-- -->
 		<dependency>
 			<groupId>org.springframework.cloud</groupId>
 			<artifactId>spring-cloud-starter-kubernetes-fabric8-all</artifactId>
@@ -93,6 +102,10 @@
 		<dependency>
 			<groupId>org.springframework.retry</groupId>
 			<artifactId>spring-retry</artifactId>
+		</dependency>
+		<dependency>
+			<groupId>de.codecentric</groupId>
+			<artifactId>spring-boot-admin-starter-client</artifactId>
 		</dependency>
 
 	</dependencies>

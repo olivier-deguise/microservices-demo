@@ -21,6 +21,21 @@ spring:
   cloud:
     kubernetes:
       enabled: false
+  security:
+    user:
+      name: notification
+      password: notification
+  boot:
+    admin:
+      client:
+        url: http://localhost:9102
+        username: admin
+        password: admin
+      instance:
+        metadata:
+          user:
+            name: ${spring.security.user.name}
+            password: ${spring.security.user.password}
 
 eureka:
   client:
@@ -37,3 +52,14 @@ rabbitmq:
     notification: notification.queue
   routing-keys:
     internal-notification: internal.notification.routing-key
+
+management:
+  endpoint:
+    health:
+      show-details: always
+    gateway:
+      enabled: true
+  endpoints:
+    web:
+      exposure:
+        include: "*"

@@ -21,12 +21,32 @@ spring:
           uri: lb://fraud
           predicates:
             - Path=/api/v1/fraud-check/**
+        - id: spring-boot-admin-server
+          uri: lb://spring-boot-admin-server
+          predicates:
+            - Path=/admin-server/
+  security:
+    user:
+      name: api-gateway
+      password: api-gateway
+  boot:
+    admin:
+      client:
+        url: http://spring-boot-admin-server:9102
+        username: admin
+        password: admin
+      instance:
+        metadata:
+          user:
+            name: ${spring.security.user.name}
+            password: ${spring.security.user.password}
 
 management:
   endpoint:
+    health:
+      show-details: always
     gateway:
       enabled: true
-
   endpoints:
     web:
       exposure:
