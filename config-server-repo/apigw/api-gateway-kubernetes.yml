@@ -24,7 +24,9 @@ spring:
         - id: spring-boot-admin-server
           uri: lb://spring-boot-admin-server
           predicates:
-            - Path=/admin-server/
+            - Path=/admin-server/**
+          filters:
+            - RewritePath=/admin-server/(?<segment>.*), /$\{segment}
   security:
     user:
       name: api-gateway
