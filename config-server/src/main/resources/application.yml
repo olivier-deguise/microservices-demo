@@ -5,6 +5,8 @@ spring:
   application:
     name: config-server
   cloud:
+    kubernetes:
+      enabled: false
     config:
       server:
         git:
