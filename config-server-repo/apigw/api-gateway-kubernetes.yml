@@ -6,7 +6,7 @@ spring:
     base-url: http://zipkin:9411
   cloud:
     kubernetes:
-      enabled: false
+      enabled: true
     gateway:
       discovery:
         locator:
