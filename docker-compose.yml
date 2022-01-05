@@ -72,6 +72,21 @@ services:
     depends_on:
       - zipkin
 
+  spring-boot-admin-server:
+    image: odg18/spring-boot-admin-server:latest
+    container_name: spring-boot-admin-server
+    ports:
+      - "9102:9102"
+    environment:
+      - SPRING_PROFILES_ACTIVE=docker
+    networks:
+      - spring
+    depends_on:
+      - zipkin
+      - eureka-server
+      - config-server
+      - apigw
+
   apigw:
     image: odg18/apigw:latest
     container_name: apigw

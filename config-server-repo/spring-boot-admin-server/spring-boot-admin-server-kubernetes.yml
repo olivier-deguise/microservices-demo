@@ -2,6 +2,9 @@ server:
   port: 9102
 
 spring:
+  cloud:
+    kubernetes:
+      enabled: true
   security:
     user:
       name: admin
