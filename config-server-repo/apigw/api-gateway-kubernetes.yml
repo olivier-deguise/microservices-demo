@@ -8,13 +8,17 @@ spring:
     kubernetes:
       enabled: false
     gateway:
+      discovery:
+        locator:
+          enabled: true
+          lower-case-service-id: true
       routes:
         - id: customer
-          uri: lb://CUSTOMER
+          uri: lb://customer
           predicates:
             - Path=/api/v1/customers/**
         - id: fraud
-          uri: lb://FRAUD
+          uri: lb://fraud
           predicates:
             - Path=/api/v1/fraud-check/**
 
