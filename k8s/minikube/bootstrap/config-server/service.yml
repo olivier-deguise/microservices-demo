@@ -6,6 +6,7 @@ spec:
   selector:
     app: config-server
   ports:
-    - port: 80
+    - port: 9101
       targetPort: 9101
   type: ClusterIP
+  #type: LoadBalancer
