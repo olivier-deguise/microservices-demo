@@ -1,7 +1,7 @@
 apiVersion: v1
 kind: ServiceAccount
 metadata:
-  name: gateway
+  name: demo-role
   namespace: default
 
 ---
@@ -24,7 +24,7 @@ metadata:
   namespace: default
 subjects:
   - kind: ServiceAccount
-    name: gateway
+    name: demo-role
     namespace: default
 roleRef:
   kind: Role
