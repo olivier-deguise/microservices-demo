@@ -40,8 +40,6 @@ management:
         include: "*"
 
 eureka:
-  instance:
-    hostname: localhost
   client:
     service-url:
       defaultZone: http://eureka-server:8761/eureka
