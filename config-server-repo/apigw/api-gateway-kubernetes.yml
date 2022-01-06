@@ -21,12 +21,12 @@ spring:
           uri: lb://fraud
           predicates:
             - Path=/api/v1/fraud-check/**
-        - id: spring-boot-admin-server
-          uri: lb://spring-boot-admin-server
-          predicates:
-            - Path=/admin-server/**
-          filters:
-            - RewritePath=/admin-server/(?<segment>.*), /$\{segment}
+#        - id: spring-boot-admin-server
+#          uri: lb://spring-boot-admin-server
+#          predicates:
+#            - Path=/admin-server/**
+#          filters:
+#            - RewritePath=/admin-server/(?<segment>.*), /$\{segment}
   security:
     user:
       name: api-gateway
