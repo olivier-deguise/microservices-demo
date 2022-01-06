@@ -30,17 +30,17 @@ spring:
     user:
       name: notification
       password: notification
-  boot:
-    admin:
-      client:
-        url: http://spring-boot-admin-server:9102
-        username: admin
-        password: admin
-      instance:
-        metadata:
-          user:
-            name: ${spring.security.user.name}
-            password: ${spring.security.user.password}
+#  boot:
+#    admin:
+#      client:
+#        url: http://spring-boot-admin-server:9102
+#        username: admin
+#        password: admin
+#      instance:
+#        metadata:
+#          user:
+#            name: ${spring.security.user.name}
+#            password: ${spring.security.user.password}
 
 eureka:
   client:
