@@ -24,7 +24,7 @@ spring:
             name: ${spring.security.user.name}
             password: ${spring.security.user.password}
       ui:
-        public-url: http://api-gateway/
+        public-url: http://api-gateway/admin-server/
 
 management:
   endpoint:

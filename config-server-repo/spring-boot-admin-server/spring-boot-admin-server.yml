@@ -24,7 +24,7 @@ spring:
             name: ${spring.security.user.name}
             password: ${spring.security.user.password}
       ui:
-        public-url: http://localhost:8083/
+        public-url: http://localhost:8083/admin-server/
 
 management:
   endpoint:
