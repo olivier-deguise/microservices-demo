@@ -17,10 +17,10 @@ spring:
           uri: lb://FRAUD
           predicates:
             - Path=/api/v1/fraud-check/**
-#        - id: spring-boot-admin-server
-#          uri: lb://SPRING-BOOT-ADMIN-SERVER
-#          predicates:
-#            - Path=/admin-server/**
+        - id: spring-boot-admin-server
+          uri: lb://SPRING-BOOT-ADMIN-SERVER
+          predicates:
+            - Path=/admin-server/**
 #          filters:
 #            - RewritePath=/admin-server/(?<segment>.*), /$\{segment}
   security:

@@ -24,7 +24,8 @@ spring:
             name: ${spring.security.user.name}
             password: ${spring.security.user.password}
       ui:
-        public-url: http://apigw:8083/admin-server/
+        public-url: http://api-gateway:8083/admin-server/
+      context-path: /admin-server
 
 management:
   endpoint:
