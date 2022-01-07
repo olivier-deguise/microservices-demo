@@ -72,20 +72,44 @@ services:
     depends_on:
       - zipkin
 
-  spring-boot-admin-server:
-    image: odg18/spring-boot-admin-server:latest
-    container_name: spring-boot-admin-server
+  prometheus:
+    image: prom/prometheus
     ports:
-      - "9102:9102"
-    environment:
-      - SPRING_PROFILES_ACTIVE=docker
+      - "9090:9090"
+    volumes:
+      - ./prometheus.yml:/etc/prometheus/prometheus.yml
     networks:
-      - spring
+       - spring
     depends_on:
       - zipkin
       - eureka-server
       - config-server
       - apigw
+
+  grafana:
+    image: grafana/grafana
+    ports:
+      - "3000:3000"
+    networks:
+      - spring
+    depends_on:
+      - prometheus
+
+
+#  spring-boot-admin-server:
+#    image: odg18/spring-boot-admin-server:latest
+#    container_name: spring-boot-admin-server
+#    ports:
+#      - "9102:9102"
+#    environment:
+#      - SPRING_PROFILES_ACTIVE=docker
+#    networks:
+#      - spring
+#    depends_on:
+#      - zipkin
+#      - eureka-server
+#      - config-server
+#      - apigw
 
   apigw:
     image: odg18/apigw:latest
