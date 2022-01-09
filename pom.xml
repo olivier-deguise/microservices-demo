@@ -34,6 +34,7 @@
 		<!-- <spring.cloud-version>2020.0.3</spring.cloud-version> -->
 		<spring.cloud-version>2021.0.0</spring.cloud-version>
 		<micrometer-registry-prometheus.version>1.8.1</micrometer-registry-prometheus.version>
+		<springfox-boot-starter.version>3.0.0</springfox-boot-starter.version>
 		<image>odg18/${project.artifactId}:${project.version}</image>
 	</properties>
 
@@ -98,6 +99,11 @@
 			<groupId>io.micrometer</groupId>
 			<artifactId>micrometer-registry-prometheus</artifactId>
 			<version>${micrometer-registry-prometheus.version}</version>
+		</dependency>
+		<dependency>
+			<groupId>io.springfox</groupId>
+			<artifactId>springfox-boot-starter</artifactId>
+			<version>${springfox-boot-starter.version}</version>
 		</dependency>
 
 	</dependencies>

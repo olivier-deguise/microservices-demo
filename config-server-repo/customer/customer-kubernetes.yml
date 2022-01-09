@@ -31,6 +31,9 @@ spring:
     user:
       name: customer
       password: customer
+  mvc:
+    pathmatch:
+      matching-strategy: ant_path_matcher
 #  boot:
 #    admin:
 #      client:

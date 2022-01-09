@@ -4,6 +4,8 @@ metadata:
   name: fraud
   labels:
     app: fraud
+  annotations:
+    scrape: "true"
 spec:
   replicas: 1
   template:
@@ -11,6 +13,8 @@ spec:
       name: fraud
       labels:
         app: fraud
+      annotations:
+        scrape: 'true'
     spec:
       serviceAccountName: demo-role
       containers:

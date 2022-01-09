@@ -1,0 +1,39 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: prom-dep
+
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: prometheus
+  template:
+    metadata:
+      name: prometheus
+      labels:
+        app: prometheus
+    spec:
+      containers:
+        - name: my-prometheus
+          image: prom/prometheus
+          ports:
+            - containerPort: 9090
+          volumeMounts:
+            - name: prometheus
+              mountPath: /etc/prometheus
+
+            - name: prom-pvc
+              mountPath: /etc/prometheus/data
+      volumes:
+        - name: prometheus
+          configMap:
+            name: prometheus
+        - name: prom-pvc
+          persistentVolumeClaim:
+            claimName: prom-data-pvc
+
+# Pour faire fonctionner dans graphana, mettre l'URL à http://prom-expose:9090
+# ici, prom-expose est le nom du service de type load balancer de prometheus
+# Pour voir les targets dans prometheus: http://localhost:9090/targets
+# Voir fichier docker-compse.yml pour monter un dashboard

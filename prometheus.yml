@@ -19,13 +19,13 @@ scrape_configs:
       - server: http://eureka-server:8761/eureka
         refresh_interval: 30s
     metrics_path: '/actuator/prometheus'
-#    relabel_configs:
-#      - source_labels: [__meta_eureka_app_name]
-#        target_label: application
-#      - source_labels: [__meta_eureka_app_instance_metadata_metrics_path]
-#        target_label: __metrics_path__
-#      - source_labels: [__address__]
-#        target_label: instance
+    relabel_configs:
+      - source_labels: [__meta_eureka_app_name]
+        target_label: application
+      - source_labels: [__meta_eureka_app_instance_metadata_metrics_path]
+        target_label: metrics_path
+      - source_labels: [__address__]
+        target_label: instance
 
   # The job name is added as a label `job=<job_name>` to any timeseries scraped from this config.
 #  - job_name: 'myapp_metrics'

@@ -11,6 +11,8 @@ spec:
       name: customer
       labels:
         app: customer
+      annotations:
+        scrape: 'true'
     spec:
       serviceAccountName: demo-role
       containers:

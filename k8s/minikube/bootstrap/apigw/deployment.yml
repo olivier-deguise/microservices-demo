@@ -11,6 +11,8 @@ spec:
       name: api-gateway
       labels:
         app: api-gateway
+      annotations:
+        scrape: 'true'
     spec:
       serviceAccountName: demo-role
       containers:

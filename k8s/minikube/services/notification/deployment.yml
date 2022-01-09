@@ -4,6 +4,8 @@ metadata:
   name: notification
   labels:
     app: notification
+  annotations:
+    scrape: "true"
 spec:
   replicas: 1
   template:
@@ -11,6 +13,8 @@ spec:
       name: notification
       labels:
         app: notification
+      annotations:
+        scrape: 'true'
     spec:
       serviceAccountName: demo-role
       containers:

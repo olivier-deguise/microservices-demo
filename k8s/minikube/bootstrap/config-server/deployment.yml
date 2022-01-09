@@ -11,6 +11,8 @@ spec:
       name: config-server
       labels:
         app: config-server
+      annotations:
+        scrape: 'true'
     spec:
       serviceAccountName: demo-role
       containers:

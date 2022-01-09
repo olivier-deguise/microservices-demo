@@ -23,6 +23,9 @@ spring:
     user:
       name: fraud
       password: fraud
+  mvc:
+    pathmatch:
+      matching-strategy: ant_path_matcher
 #  boot:
 #    admin:
 #      client:

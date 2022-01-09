@@ -86,6 +86,9 @@ services:
       - config-server
       - apigw
 
+# Dans grafana (username = password = admin), lors de la création du data source, inscrire comme URL : http://host.docker.internal:9090
+# Une fois la datasource fonctionnelle,, allez dans "+ (Create)" --> Import --> Entrer 4701
+  # Note that you have to choose the correct Prometheus data source at the Prometheus drop-down list. Once done, click on the Import button.
   grafana:
     image: grafana/grafana
     ports:
