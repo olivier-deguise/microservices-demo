@@ -1,6 +1,7 @@
 package com.org.myapp.demo.notification;
 
 import lombok.Getter;
+import org.springdoc.core.GroupedOpenApi;
 import org.springframework.amqp.core.Binding;
 import org.springframework.amqp.core.BindingBuilder;
 import org.springframework.amqp.core.Queue;
@@ -8,10 +9,6 @@ import org.springframework.amqp.core.TopicExchange;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
-import springfox.documentation.builders.PathSelectors;
-import springfox.documentation.builders.RequestHandlerSelectors;
-import springfox.documentation.spi.DocumentationType;
-import springfox.documentation.spring.web.plugins.Docket;
 
 @Configuration
 @Getter
@@ -45,12 +42,11 @@ public class NotificationConfig {
     }
 
     @Bean
-    public Docket api()
+    public GroupedOpenApi api()
     {
-        return new Docket(DocumentationType.SWAGGER_2)
-                .select()
-                .apis(RequestHandlerSelectors.basePackage("com.org.myapp.demo.notification"))
-                .paths(PathSelectors.regex("/api/v1/notification/**"))
+        return GroupedOpenApi.builder()
+                .group("notification")
+                .pathsToMatch("/api/v1/notification/**")
                 .build();
     }
 }
